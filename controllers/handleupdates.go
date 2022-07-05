@@ -19,11 +19,8 @@ func HandleUpdates(bot *tgbotapi.BotAPI, updates tgbotapi.UpdatesChannel) {
 
 		if isCommand {
 			HandleCommands(update, bot)
-			continue
 		} else if isUrl {
 			HandleLinks(update.Message.Text, update, bot)
-		} else {
-			continue
 		}
 	}
 }
