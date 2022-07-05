@@ -56,13 +56,16 @@ func main() {
 
 		if strings.Contains(messageText, "https://twitter.com/") {
 			messageText = strings.Replace(messageText, "https://twitter.com/", "https://vxtwitter.com/", 1)
+			sendMessage(messageText, update, bot)
+			continue
 		}
 
 		if strings.Contains(messageText, "https://instagram.com/") {
 			messageText = strings.Replace(messageText, "https://instagram.com/", "https://ddinstagram.com/", 1)
+			sendMessage(messageText, update, bot)
+			continue
 		}
 
-		sendMessage(messageText, update, bot)
 	}
 }
 
