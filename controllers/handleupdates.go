@@ -4,6 +4,9 @@ import (
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
 
+/**
+ * Function to handle all updates recieved by the bot and only process those that are commands or URLs
+ **/
 func HandleUpdates(bot *tgbotapi.BotAPI, updates tgbotapi.UpdatesChannel) {
 	for update := range updates {
 		if update.Message == nil {

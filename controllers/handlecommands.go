@@ -6,8 +6,12 @@ import (
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
 
+/**
+ * Function to handle commands and execute only on a match of preset bot commands
+ **/
 func HandleCommands(update tgbotapi.Update, bot *tgbotapi.BotAPI) {
 	var text string
+
 	switch update.Message.Command() {
 	case "start":
 		text =
