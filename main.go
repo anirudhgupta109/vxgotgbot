@@ -52,16 +52,17 @@ func main() {
 			continue
 		}
 
-		if !strings.Contains(update.Message.Text, "twitter.com") && !strings.Contains(update.Message.Text, "instagram.com") {
-			// ignore any message not containing twitter or instagram link
-			continue
+		messageText := update.Message.Text
+
+		if strings.Contains(messageText, "https://twitter.com/") {
+			messageText = strings.Replace(messageText, "https://twitter.com/", "https://vxtwitter.com/", 1)
 		}
 
-		var newURL string
-		newURL = strings.Replace(update.Message.Text, "twitter.com", "vxtwitter.com", 1)
-		newURL = strings.Replace(newURL, "instagram.com", "ddinstagram.com", 1)
+		if strings.Contains(messageText, "https://instagram.com/") {
+			messageText = strings.Replace(messageText, "https://instagram.com/", "https://ddinstagram.com/", 1)
+		}
 
-		sendMessage(newURL, update, bot)
+		sendMessage(messageText, update, bot)
 	}
 }
 
