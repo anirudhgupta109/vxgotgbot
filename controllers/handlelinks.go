@@ -14,8 +14,8 @@ func HandleLinks(messageText string, update tgbotapi.Update, bot *tgbotapi.BotAP
 		return
 	}
 
-	if strings.Contains(messageText, "https://instagram.com/") {
-		messageText = strings.Replace(messageText, "https://instagram.com/", "https://ddinstagram.com/", 1)
+	if strings.Contains(messageText, "https://www.instagram.com/") {
+		messageText = strings.Replace(messageText, "https://www.instagram.com/", "https://www.ddinstagram.com/", 1)
 		helpers.SendMessage(messageText, update, bot)
 		return
 	}
