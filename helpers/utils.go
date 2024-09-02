@@ -1,6 +1,7 @@
 package helpers
 
 import (
+	"fmt"
 	"net/url"
 	"strings"
 
@@ -13,12 +14,12 @@ func StripURLs(message *tgbotapi.Message) string {
 	}
 
 	urls := getURLsFromMessage(message)
-	finalText := message.Text
+	finalText := ""
 
-	for _, u := range urls {
+	for idx, u := range urls {
 		if u.RawQuery != "" {
 			scrubbedURL := strings.Replace(u.String(), "?"+u.RawQuery, "", 1)
-			finalText = strings.Replace(finalText, u.String(), scrubbedURL, 1)
+			finalText = fmt.Sprintf("%s\n[%d] %s", finalText, idx, scrubbedURL)
 		}
 	}
 
