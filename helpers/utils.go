@@ -17,10 +17,11 @@ func StripURLs(message *tgbotapi.Message) string {
 	finalText := ""
 
 	for idx, u := range urls {
-		finalText = fmt.Sprintf("%s %s", finalText, u)
 		if u.RawQuery != "" {
 			scrubbedURL := strings.Replace(u.String(), "?"+u.RawQuery, "", 1)
 			finalText = fmt.Sprintf("%s\n[%d] %s", finalText, idx, scrubbedURL)
+		} else {
+			finalText = fmt.Sprintf("%s\n[%d] %s", finalText, idx, u.String())
 		}
 	}
 
