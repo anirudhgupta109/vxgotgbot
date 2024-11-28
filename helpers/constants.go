@@ -4,6 +4,9 @@ const InstaRegex string = `https://(?:www\.)?(?P<host>instagram\.com)/(.*/)?(p|r
 
 const TwitterRegex string = `https://(?P<host>(?:mobile\.)?(?P<root>(twitter|x))\.com)/.*/status/[0-9]+.*`
 
+
+const TikTokRegex string = `https://(?:www\.)?(?P<host>(?:vm\.)?tiktok\.com)/(.*/)?(t/)?[A-Za-z0-9]+.*`
+
 func GetDomains() []string {
-	return []string{"https://www.instagram.com/", "https://twitter.com/", "https://x.com/"}
+	return []string{"https://www.instagram.com/", "https://twitter.com/", "https://x.com/", "https://tiktok.com/"}
 }
